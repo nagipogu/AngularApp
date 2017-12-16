@@ -1,0 +1,67 @@
+<form name="form" class="newuser" #frm="ngForm" (ngSubmit)="addUser(frm)">
+        <div class="form-group">
+            <label for="firstname">Firstname</label>
+            <input type="text" id="firstname" class="form-control" name="firstname" ngModel #firstName="ngModel" required pattern="[a-zA-Z][a-zA-Z ]+" />
+            <div *ngIf="firstName.touched"  style="color:indianred">
+            <div *ngIf="firstName.errors?.required">
+            Firstname is Required
+            </div>
+            <div *ngIf="firstName.errors?.pattern">
+            Invalid firstname
+            </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Lastname</label>
+            <input type="text" id="lastname" class="form-control" name="lastname" ngModel #lastName="ngModel" required pattern="[a-zA-Z][a-zA-Z ]+"/>
+            <div *ngIf="lastName.touched" style="color:indianred">
+            <div *ngIf="lastName.errors?.required">
+            Lastname is Required
+            </div>
+            <div *ngIf="lastName.errors?.pattern">
+            Invalid lastname
+            </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" class="form-control" name="username" ngModel #userName="ngModel" required pattern="[a-zA-Z][a-zA-Z ]+"/>
+            <div *ngIf="userName.touched" style="color:indianred">
+            <div *ngIf="userName.errors?.required">
+            Username is Required
+            </div>
+            <div *ngIf="userName.errors?.pattern">
+            Invalid Username
+            </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" name="password" ngModel #passWord="ngModel" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+            <div *ngIf="passWord.touched" style="color:indianred">
+            <div *ngIf="passWord.errors?.required">
+            Password is Required
+            </div>
+            <div *ngIf="passWord.errors?.pattern">
+            Invalid Password
+            </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="re-password">Re-enter</label>
+            <input type="password" id="re-password" class="form-control" name="re-password" ngModel #rePassword="ngModel" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/>
+            <div *ngIf="rePassword.touched" style="color:indianred">
+            <div *ngIf="rePassword.errors?.required">
+            Password is Required
+            </div>
+            <div *ngIf="rePassword.errors?.pattern">
+            Invalid Password
+            </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Register</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+        <hr>
+</form>

@@ -1,0 +1,33 @@
+<form class="login" #frm="ngForm" (ngSubmit)="addUser(frm)">
+
+			<div class="form-group">
+					<label for="name">Username</label>
+					<input type="text" class="form-control" name="username" ngModel #nameUser="ngModel" required pattern="[a-zA-Z][a-zA-Z ]+">
+			</div>
+			<div *ngIf="nameUser.touched"  style="color:indianred">
+		  <div *ngIf="nameUser.errors?.required">
+		   Name is Required
+		  </div>
+		  <div *ngIf="nameUser.errors?.pattern">
+		   Invalid name
+		  </div>
+		  </div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" name="userpass" id="password" ngModel #passuser="ngModel" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$
+" >
+			</div>
+			<div *ngIf="passuser.touched"  style="color:indianred">
+		  <div *ngIf="passuser.errors?.required">
+		   Password is Required
+		  </div>
+		  <div *ngIf="passuser.errors?.pattern">
+		   Invalid Password
+		  </div>
+		  </div>
+
+			<div class="form-group">
+				<button id="button" type="submit" class="btn btn-primary" name="button" [disabled]="frm.invalid">Login</button>
+			</div>
+
+</form>
